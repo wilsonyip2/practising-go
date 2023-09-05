@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
-
+	
 	"github.com/go-sql-driver/mysql"
 )
 
@@ -78,7 +78,7 @@ func albumsByArtist(name string) ([]Album, error) {
 	// Loop through rows, using Scan to assign column data to struct fields.
 	for rows.Next() {
 		var alb Album
-		if err := rows.Scan(&alb.Price, &alb.Title, &alb.Artist, &alb.Price); err != nil {
+		if err := rows.Scan(&alb.ID, &alb.Title, &alb.Artist, &alb.Price); err != nil {
 			return nil, fmt.Errorf("albumsByArtist %q: %v", name, err)
 		}
 		albums = append(albums, alb)
